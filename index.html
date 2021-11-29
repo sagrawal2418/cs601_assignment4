@@ -4,52 +4,67 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="radio.css">
+    <link rel="stylesheet" href="checkbox.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Setting title for the javascript program -->
     <title>Javascript form</title>
 </head>
 
-<body class="container">
-    <form name="myForm" action="https://bucs601.com/submit.php" onsubmit="return validateForm()" method="post">
-        <input type="text" id="firstName" name="firstName" placeholder="First Name">
-        <input type="text" id="lastName" name="lastName" placeholder="Last Name">
-        <input type="text" id="facilitator" name="facilitator" placeholder="Facilitator">
+<body>
+    <!--Created a div element for styling the card in the css -->
+    <div class="card">
+        <!--Form tag with the post request and url in the action will be triggered on click on submit button by executing the validateForm() method -->
+        <form id="myForm" action="https://bucs601.com/submit.php" onsubmit="return validateForm()" method="post">
+            <!--Input fields with required attribute and placeholder -->
+            <input type="text" id="firstName" name="firstName" placeholder="First Name" autofocus required input
+                pattern="[a-zA-Z]{2,}">
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name" required input
+                pattern="[a-zA-Z]{2,}">
+            <input type="text" id="facilitator" name="facilitator" placeholder="Facilitator" required minlength="1">
+        
+            <!--fieldset to group the radio button inside a box -->
+            <fieldset>
+                <legend>Which one of these do you enjoy the most?</legend>
+                <label class="radio">
+                    <input type="radio" name="radio-button" id="myRadioId" class="radio__input" />
+                    <div class="radio__radio"></div>
+                    <span>HTML</span>
+                </label>
+                <label class="radio">
+                    <input type="radio" name="radio-button" id="myRadioId" class="radio__input" />
+                    <div class="radio__radio"></div>
+                    <span>CSS</span>
+                </label>
+                <label class="radio">
+                    <input type="radio" name="radio-button" id="myRadioId" class="radio__input" />
+                    <div class="radio__radio"></div>
+                    <span>JavaScript</span>
+                </label>
+            </fieldset>
 
-        <fieldset>
-            <legend>What is your favorite Web language?</legend>
-            <label>
-                <input type="radio" name="radio-button" value="HTML" />
-                  <span>HTML</span>
-            </label>
-            <label>
-                <input type="radio" name="radio-button" value="CSS" />
-                 <span>CSS</span>
-                  <input type="radio" name="radio-button" value="JavaScript">
-                 <span>JavaScript</span>
-
-            </label>
-        </fieldset>
-
-        <fieldset>
-            <legend>Which of these IDEs have you used?</legend>
-            <label>
-                <input type="checkbox" name="checkbox" value="Visual Studio Code" />
-                <span>Visual Studio Code</span>
-            </label>
-            <label>
-                <input type="checkbox" name="checkbox" value="Netbeans" />
-                <span>Netbeans</span>
-            </label>
-            <label>
-                <input type="checkbox" name="checkbox" value="Adobe Dreamweaver" />
-                <span>Adobe Dreamweaver</span>
-            </label>
-        </fieldset>
-        <input type="submit" value="Submit">
-    </form>
-     <!--Start of the script tag -->
-     <script type="text/javascript" src="script.js">
+            <fieldset>
+                <legend>Which of these IDEs have you used?</legend>
+                <label>
+                    <input type="checkbox" name="checkbox" value="Visual Studio Code" />
+                    <span>Visual Studio Code</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="checkbox" value="Netbeans" />
+                    <span>Netbeans</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="checkbox" value="Adobe Dreamweaver" />
+                    <span>Adobe Dreamweaver</span>
+                </label>
+            </fieldset>
+            <input type="submit" id="submit" value="Submit">
+        </form>
+    </div>
+    <!--Start of the script tag -->
+    <script type="text/javascript" src="script.js">
     </script>
 </body>
 
